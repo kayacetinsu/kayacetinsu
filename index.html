@@ -1,69 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>eCommerce Web Technologies II Final Project</title>
 
-</head>
+<title>Ajax</title>
 
-<body>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h1 class="text-center">eCommerce<br>
-        Online Shopping</h1>
-    </div>
-  </div>
-  <hr>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="text-center col-md-12">
-      <div class="well">
-		<p>
-		<input name="username" type="email" autofocus required class="text" id="username" placeholder="User Name" value="admin@admin.com">
-		<br>
-		<br>
-		<input name="password" type="password" required class="text" id="password" placeholder="Password" value="admin">
-		<br><br></p>
-		<p>
-          <button type="button" id="login" class="btn btn-lg btn-default">Login</button>
-        </p>
-      </div>
-      <div class="well">
-        <button type="button" id="register" class="btn btn-lg btn-default">Register</button>
-      </div>
-    </div>
-  </div>
-<hr>
-  <div class="row">
-    <div class="text-center col-md-6 col-md-offset-3">
-      <h4>Web Technologies II<br>
-        Final Project<br>
-      </h4>
-      <p><em><strong>Chander Rekha Bhardwaj :</strong>&nbsp;C0678532 <br>
-        <strong>Jaspreet Kaur Aulakh :</strong>&nbsp;C0695482 <br>
-        <strong>Kaya Cetinsu :</strong> C0687321<br>
-        <strong>Nidhi Patel :</strong>&nbsp;C0698349 </em><br>
-      </p>
-      <p>Copyright &copy; 2017 &middot; All Rights Reserved</p>
-    </div>
-  </div>
-  <hr>
-</div>
-
-<!-- jQuery --> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-<!-- Bootstrap -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<script src="js/bootstrap.js"></script>
+<script src="js/ajax.js"></script>
+	
+</head>
 
-<script src="js/json.js"></script>
+<body>
+	
+  <!--  Page One-->
+  <div data-role="page" id="page1">
+    <div data-role="header">
+      <h1>Search Products</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+<!--      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go To Page 2</a>-->
+		<form name="myform" method="get" action="">  
+
+		<!--drop down-->
+		<p><strong>Select Product Category</strong></p>
+		<select id="selectproduct" data-iconpos="left">
+			<option value=""></option>
+			<option value="Computers">Computers</option>
+			<option value="Smartphones">Smart Phones</option>
+		</select>
+	
+		<input type="text" id="search" name="search">
+		
+		<input type="button" id="button" name="button" value="Search">
+
+		</form> 
+   
+    </div>
+ 	<div data-role="footer">
+		<div data-role="navbar">
+		  <ul>
+			<li><a href="#" class="ui-btn-active ui-state-persist" data-icon="home">Welcome Screen</a></li>
+			<li><a href="#page2" data-icon="arrow-r">My Cart</a></li>
+			<li><a href="#page3" data-icon="search">My Profile</a></li>
+		  </ul>
+		</div>
+	</div>
+
+  </div>
+  
+  <!--  Page Two-->
+  <div data-role="page" id="page2">
+    <div data-role="header">
+      	<h1>Products List</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+     	
+<!--      	<a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>-->
+
+		<ul id="productslist" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search items...">
+			<li><a href="#">
+				<img src="img/mobile1.jpg">
+			<h2>Product 1</h2>
+			<p>Product 1 Details</p></a>
+			</li>
+			<li><a href="#">
+				<img src="img/mobile2.jpg">
+			<h2>Product 2</h2>
+			<p>Product 2 Details</p></a>
+			</li>
+			<li><a href="#">
+				<img src="img/mobile3.jpg">
+			<h2>Product 3</h2>
+			<p>Product 3 Details</p></a>
+			</li>
+		</ul>
+   
+    </div>
+ 	<div data-role="footer">
+		<div data-role="navbar">
+		  <ul> 
+			<li><a href="#page1" data-icon="home">Welcome Screen</a></li>
+			<li><a href="#" class="ui-btn-active ui-btn-active ui-state-persist" data-icon="arrow-r">My Cart</a></li>
+			<li><a href="#page3" data-icon="search">My Profile</a></li>
+		  </ul>
+		</div>
+	</div>
+  </div>
 
 </body>
 </html>
