@@ -15,7 +15,7 @@
       let thisForm = this;
 
       let action = thisForm.getAttribute('action');
-      let recaptcha = thisForm.getAttribute('data-sitekey');
+      let recaptcha = "6LcsdeYkAAAAAEKi64hyx8XWUydPAomFSd4iLuy7";
        
       if( ! action ) {
         displayError(thisForm, 'The form action property is not set!')
@@ -67,6 +67,7 @@
       if (data.trim() != '') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
+        //grecaptcha.reset();
       } else {
         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
       }
