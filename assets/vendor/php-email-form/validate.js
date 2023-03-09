@@ -16,7 +16,7 @@
 
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
-      
+       
       if( ! action ) {
         displayError(thisForm, 'The form action property is not set!')
         return;
@@ -56,11 +56,15 @@
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
+      if (!response.ok) {
+        thisForm.querySelector('.loading').classList.remove('d-block');
+        throw new Error("HTTP status " + response.status); 
+      }
       return response.text();
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      if (data.trim() != '') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
