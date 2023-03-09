@@ -56,7 +56,12 @@
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
-      return response.text();
+      if (response.status() == 200) {
+        return response.text();
+      } else {
+        thisForm.querySelector('.loading').classList.remove('d-block');
+        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+      }
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
