@@ -62,12 +62,13 @@
   function php_email_form_submit(thisForm, action, formData) {
 
     var response = grecaptcha.getResponse();
-    $.ajax({
-        type: "POST",
-        url: 'https://www.google.com/recaptcha/api/siteverify',
-        data: {"secret" : "6LcsdeYkAAAAAAACpNr5R_KVZdcE-sihR314Se9V", "response" : response, "remoteip":"localhost"},
-        contentType: 'application/x-www-form-urlencoded',
-        success: function(data) { console.log(data); }
+    fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      body: {"secret" : "6LcsdeYkAAAAAAACpNr5R_KVZdcE-sihR314Se9V", "response" : response, "remoteip":"localhost"},
+      headers: {'X-Requested-With': 'XMLHttpRequest'}
+    })
+    .then(response =>{
+      console.log(response.text())
     });
 
     fetch(action, {
