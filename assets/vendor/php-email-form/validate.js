@@ -78,6 +78,12 @@
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
         grecaptcha.reset();
+
+        setTimeout(function() {
+          thisForm.querySelector('.error-message').classList.remove('d-block');
+          thisForm.querySelector('.sent-message').classList.remove('d-block');
+        }, 10);
+
       } else {
         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
       }
