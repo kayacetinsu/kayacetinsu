@@ -64,6 +64,9 @@
     var response = grecaptcha.getResponse();
     fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
+      mode: "cors", 
+      cache: "no-cache", 
+      credentials: "same-origin", 
       body: {"secret" : "6LcsdeYkAAAAAAACpNr5R_KVZdcE-sihR314Se9V", "response" : response, "remoteip":"localhost"},
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
