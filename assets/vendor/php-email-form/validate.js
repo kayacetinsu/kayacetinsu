@@ -65,7 +65,7 @@
     fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       body: {"secret" : "6LcsdeYkAAAAAAACpNr5R_KVZdcE-sihR314Se9V", "response" : response, "remoteip":"localhost"},
-      headers: {'X-Requested-With': 'XMLHttpRequest'}
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
     .then(response =>{
       console.log(response.text())
